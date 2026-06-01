@@ -52,7 +52,7 @@ export default function SkillTree() {
                       key={lesson.id}
                       onClick={() =>
                         navigate(
-                          `/learn?lesson=${lesson.id}`
+                          `/practice?lesson=${lesson.id}`
                         )
                       }
                       className={`
