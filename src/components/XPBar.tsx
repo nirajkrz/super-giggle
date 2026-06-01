@@ -1,38 +1,47 @@
-import {
- useProgressStore
-}
-from "../store/useProgressStore";
+import { useProgressStore }
+from "../store/progressStore";
 
 export default function XPBar() {
+
  const xp =
  useProgressStore(
-   (s) => s.xp
+   s => s.xp
  );
 
  const level =
  useProgressStore(
-   (s) => s.level
+   s => s.level
  );
 
- return (
-   <div className="w-full">
-     <div className="mb-2">
-       Level {level}
-     </div>
+ const percent =
+ (xp % 100);
 
-     <div className="h-4 bg-slate-700 rounded-full">
-       <div
-         className="
-           bg-green-500
-           h-4
-           rounded-full
-         "
-         style={{
-           width:
-             `${xp % 100}%`
-         }}
-       />
-     </div>
+ return (
+  <div className="w-48">
+
+   <div>
+     Lvl {level}
    </div>
+
+   <div
+    className="
+      h-3
+      rounded-full
+      bg-slate-700
+    "
+   >
+     <div
+      className="
+       bg-green-500
+       h-full
+       rounded-full
+      "
+      style={{
+       width: `${percent}%`
+      }}
+     />
+   </div>
+
+  </div>
  );
 }
